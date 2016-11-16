@@ -25,6 +25,7 @@ function init(config) {
     outputBufferLength = config.outputBufferLength;
 }
 
+
 function record(inputBuffer) {
     var volumeMax = 0.0;
     var sample;
