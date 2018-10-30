@@ -17,11 +17,11 @@
       <br/>
       Cách đọc theo từ điển
       <br/>
-      <input class="form-control" type="text" id="ipa-out-dict" readonly></input>
+      <input class="form-control" type="text" id="ipa-out-dict" readonly disabled="disabled"></input>
       <br/>
       Cách đọc theo phiên âm tiếng Việt
       <br/>
-      <input class="form-control" type="text" id="ipa-out" readonly></input>
+      <input class="form-control" type="text" id="ipa-out" readonly disabled="disabled"></input>
       <br/>
       
       <button id="recordButton" class="btn btn-info">Bắt đầu nói <i class="fa fa-microphone"></i></button>
@@ -35,6 +35,20 @@
       <div id="ipa-err" style="display: none;">
           <p>Errors will go here if you make any. (This will be overwritten!)</p>
       </div>
+      <br>
+      <br>
+      <h2 id="resultScore"></h2>
+      <br>
+      <div id="messageScore" class=""></div>
+      <div class="row">
+        <div class="col-md-6">
+          <canvas id="resultChart" width="100%" height="80"></canvas>
+        </div>
+        <div class="col-md-6" id="resultPhonemeChart">
+          
+        </div>
+      </div>
+
       
     </div>
 
@@ -43,20 +57,11 @@
     <script src="text-to-ipa-dict.js"></script>
     <script src="converter-form-dict.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+
     
     <script type="text/javascript">
  
-
-    function errorModal(error){
-      var map_error = {}
-      map_error["INVALID_SENTENCE"] = "Vui lòng nhập đúng nội dung tiếng anh"
-      map_error["NO_AUDIO"] = "Âm thanh quá ngắn hoặc sai định dạng"
-      swal({
-        type: 'error',
-        title: 'Cảnh báo...',
-        text: map_error[error],
-      })
-    };
 
 
     window.onload = TextToIPA.loadDict('./ipadict2.txt');
